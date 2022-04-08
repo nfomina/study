@@ -1,0 +1,12 @@
+n = int(input())
+m = int(input())
+k = int(input())
+x = int(input())
+y = int(input())
+z = int(input())
+t = int(input())
+a = int(input())
+
+print(2*x + 2*y + 2*z - 3*n -3*m -3*k + 3*t)
+print(2*n + 2*m + 2*k -3*t - x - y - z)
+print(a + n + m + k - x - y - z - t)
