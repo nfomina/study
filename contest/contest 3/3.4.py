@@ -1,13 +1,22 @@
+from itertools import product
+
 n = int(input())
 
 
-def gen(n: int, counter_open: int, counter_close: int, ans: str):
-    if counter_open + counter_close == 2 * n:
-        print(ans)
-    if counter_open < n:
-        gen(n, counter_open + 1, counter_close, ans + '(')
-    if counter_open > counter_close:
-        gen(n, counter_open, counter_close + 1, ans + ')')
+def check(my_string):
+    brackets = ['()', '[]']
+    while any(x in my_string for x in brackets):
+        for br in brackets:
+            my_string = my_string.replace(br, '')
+    return not my_string
 
 
-gen(n//2, 0, 0, '')
+brackets = ['(', ')', '[', ']']
+
+all_combinations = product(brackets, repeat=n)
+
+for line in list(all_combinations):
+    line_short = ''.join(line)
+    if check(line_short):
+        print(line_short)
+
